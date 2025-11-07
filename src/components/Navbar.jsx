@@ -15,7 +15,7 @@ const [token, setToken] = useState(true);
   return (
     <div className='flex items-center justify-between text-sm py-4 border-b border-b-gray-400 '>
 
-       <img className='w-44 cursor-pointer' src={logo} alt="Prescripto Logo" width="120" />
+       <img onClick={()=>navigate('/')} className='w-44 cursor-pointer' src={logo} alt="Prescripto Logo" width="120" />
        <h1 className='text-white fon'>hello</h1>
 
       <ul className="hidden md:flex items-start gap-5 font-medium">
