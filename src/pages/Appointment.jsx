@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { assets } from '../assets/assets';
+import RelatedDoctor from '../components/RelatedDoctor';
 
 const Appointment = () => {
   const { docId } = useParams();
@@ -22,7 +23,7 @@ const Appointment = () => {
     setDocSlots([]);
     const today = new Date();
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 1; i <= 7; i++) {
       const currentDate = new Date(today);
       currentDate.setDate(today.getDate() + i);
 
@@ -124,6 +125,9 @@ const Appointment = () => {
         </div>
         <button className='bg-[#5F6FFF] text-white text-sm font-light px-14 py-3 rounded-full m-6'>Book an appointmen</button>
       </div>
+      {/* -----------------related doc comp---------------- */}
+
+      <RelatedDoctor docId={docId} speciality={docInfo.speciality}/>
     </div>
   );
 };
