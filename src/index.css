@@ -12,3 +12,7 @@
 ::-webkit-scrollbar {
     @apply hidden
 }
+@media (max-width:740px) {
+    @apply text-white bg-[#5F6FFF]
+    
+}
