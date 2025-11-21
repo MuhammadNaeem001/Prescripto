@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const doctorSchema = new mongoose.doctorSchema({
+const doctorSchema = new mongoose.Schema({   // <-- yaha fix
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -9,14 +9,14 @@ const doctorSchema = new mongoose.doctorSchema({
     degree: { type: String, required: true },
     experience: { type: String, required: true },
     about: { type: String, required: true },
-    available: { type: Boolean, required: true },
+    available: { type: Boolean, default: true },
     fees: { type: Number, required: true },
     address: { type: Object, required: true },
     date: { type: Number, required: true },
     Slots_booked: { type: Object, default: {} },
+}, { minimize: false });
 
+// Agar model already exist kare, reuse karo
+const doctorModel = mongoose.models.doctor || mongoose.model('doctor', doctorSchema);
 
-}, { minimize: false })
-
-const doctorModel = mongoose.models.doctors || mongoose.model('doctor', doctorSchema)
-export default doctorModel 
+export default doctorModel;
